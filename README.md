@@ -119,10 +119,10 @@ Website/
 ├── js/
 |     └──main.js
 └── images/
-    ├── logo.jpeg
-    ├── Sanitary-drive.jpeg
-    ├── Shoe-donation.jpg
-    └── Shoprite-award.jpg
+|    ├── logo.jpeg
+|    ├── Sanitary-drive.jpeg
+|    ├── Shoe-donation.jpg
+|    └── Shoprite-award.jpg
 ├──Screenshots
     ├── Desktop-1440.png
     ├── Tablet-768.png
@@ -184,7 +184,8 @@ _The entries from 14 August to 21 August record when each stage of the project w
 - Interactive Leaflet maps for the head office and Kgabo Primary School on the Contact page.
 - Unique meta descriptions and keywords on every page.
 - `robots.txt` and `sitemap.xml` in the project root.
-- Lazy loading ('loading="lazy"') on images lower down the page to improve page speed.
+- Lazy loading (`loading="lazy"`) on images lower down the page to improve page speed.
+- "Type of message" dropdown on the contact form.
 
 #### Changed
 
@@ -322,9 +323,9 @@ Google, 2026. Introduction to robots.txt. [online] Available at: <https://develo
 
 HostAfrica, 2026. How Much Does It Cost to Build a Website in South Africa?. [online] Available at: <https://hostafrica.co.za/blog/websites/website-basics/how-much-does-a-website-cost-in-south-africa/> [Accessed 7 August 2026].
 
-Manna Food Hub, 2026. Uber Eats listing and menu. [online] Available at: <https://www.ubereats.com/za/store/manna-food-hub> [Accessed 7 August 2026].
-
 Leaflet, 2026. Leaflet: An open-source JavaScript library for interactive maps. [online] Available at: <https://leafletjs.com/> [Accessed 19 October 2026].
+
+Manna Food Hub, 2026. Uber Eats listing and menu. [online] Available at: <https://www.ubereats.com/za/store/manna-food-hub> [Accessed 7 August 2026].
 
 MDN Web Docs, 2026. Fetch API. [online] Available at: <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API> [Accessed 19 October 2026].
 
