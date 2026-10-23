@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dimpho-masilo.github.io/ST10500849_Part-3-Website/sitemap.xml
