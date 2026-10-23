@@ -1,0 +1,612 @@
+/* ==========================================================================
+   RAMMOLAI FOUNDATION — MAIN STYLESHEET
+   Student: Dimpho Masilo (ST10500849)
+   Module:  WEDE5020 — Web Development (Introduction)
+
+   Colours were inspired  by the Foundation's own logo, which is made
+   of three coloured arcs (purple, teal and orange). Orange is reserved for
+   actions the visitor can take, so colour carries meaning rather than just
+   decorating the page.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   All colours, fonts and spacing values are defined once here as CSS custom
+   properties, then reused throughout the file. Changing a value here updates
+   the whole website at once.
+   ========================================================================== */
+
+:root {
+  /* Brand colours, darkened slightly from the logo so text passes contrast */
+  --purple: #8e3fb0;
+  --teal: #0f8c88;
+  --orange: #e8901c;
+  --orange-deep: #c67510;
+
+  /* Neutrals */
+  --ink: #2a1f2e;          /* main body text */
+  --ink-soft: #5c5261;     /* secondary text */
+  --paper: #ffffff;        /* page background */
+  --panel: #f7f3f9;        /* tinted panel background */
+  --rule: #e4dbe9;         /* hairline borders */
+
+  /* Typefaces */
+  --font-heading: "Archivo", "Segoe UI", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+
+  /* Type scale (major third, 1.25 ratio) */
+  --size-small: 0.875rem;
+  --size-body: 1.0625rem;
+  --size-h3: 1.375rem;
+  --size-h2: 1.75rem;
+  --size-h1: 2.5rem;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+
+  /* Page width — keeps line lengths readable */
+  --max-width: 68rem;
+}
+
+
+/* ==========================================================================
+   2. CSS RESET / BASE STYLES
+   Browsers apply their own default margins and sizing, which differ between
+   Chrome, Firefox and Edge. Clearing them first means the site looks the
+   same everywhere.
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* padding and borders count inside an element's width */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: 1.65;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+/* Images never overflow their container, and keep their aspect ratio.
+   This overrides the width="400" attribute in the HTML on small screens. */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Lists lose their bullets only where they are used for navigation */
+ul {
+  list-style: none;
+}
+
+a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: var(--size-h1);
+  font-weight: 700;
+  letter-spacing: -0.02em;   /* large text needs tightening to look even */
+}
+
+h2 {
+  font-size: var(--size-h2);
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+}
+
+h3 {
+  font-size: var(--size-h3);
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  max-width: 68ch;           /* keeps lines short enough to read comfortably */
+}
+
+/* The three-colour rule under every section heading, echoing the three
+   arcs of the Foundation's logo. Drawn with a gradient so it needs no
+   extra HTML element. */
+main h2 {
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    var(--purple) 0 33%,
+    var(--teal) 33% 66%,
+    var(--orange) 66% 100%
+  ) 1;
+}
+
+
+/* ==========================================================================
+   4. LAYOUT — HEADER
+   CSS Grid with named areas places the logo beside the wording on desktop,
+   and stacks them on mobile (see the media queries in section 8).
+   ========================================================================== */
+
+header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "logo title"
+    "logo tagline";
+  align-items: center;
+  gap: 0 var(--space-md);
+
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-sm);
+}
+
+header img {
+  grid-area: logo;
+}
+
+header h1 {
+  grid-area: title;
+  color: var(--purple);
+}
+
+header p {
+  grid-area: tagline;
+  margin-bottom: 0;
+  color: var(--ink-soft);
+  font-size: var(--size-h3);
+}
+
+
+/* ==========================================================================
+   5. LAYOUT — NAVIGATION
+   Flexbox spreads the five links in a row. The bar sits directly under the
+   header and uses the tinted panel colour to separate it from the content.
+   ========================================================================== */
+
+nav {
+  background-color: var(--panel);
+  border-top: 3px solid var(--teal);
+  border-bottom: 1px solid var(--rule);
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-sm);
+}
+
+nav a {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--size-small);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   6. LAYOUT — MAIN CONTENT
+   ========================================================================== */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+}
+
+section {
+  margin-bottom: var(--space-lg);
+}
+
+/* The "Our Impact" list is the one place a plain bulleted list is used.
+   Each item gets a teal marker instead of a default disc. */
+main section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main section ul li {
+  position: relative;
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+main section ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--teal);
+}
+
+/* Intro photo fills the content width like a banner, so it lines up with
+   the heading rule above it. object-fit crops the photo neatly instead of
+   stretching it. */
+main section > img {
+  width: 100%;
+  max-height: 24rem;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: var(--space-sm);
+}
+
+/* Adds space between links that sit next to each other in one paragraph
+   (for example "Donate Now" and "Get Involved") */
+main p a + a {
+  margin-left: var(--space-sm);
+}
+
+/* Campaign and programme entries are stacked cards with an orange edge */
+article {
+  background-color: var(--panel);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--orange);
+  border-radius: 6px;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+/* Card photos fill the card width and behave the same at every screen size */
+article img {
+  width: 100%;
+  max-height: 22rem;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: var(--space-sm);
+}
+
+article p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   7. FORMS
+   Used on the Enquiries and Contact pages.
+   ========================================================================== */
+
+form {
+  background-color: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: var(--space-md);
+  max-width: 34rem;
+}
+
+label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--size-small);
+  margin-bottom: var(--space-xs);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  color: var(--ink);
+
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;      /* stops users dragging the box wider than the page */
+  min-height: 8rem;
+}
+
+button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--size-body);
+  color: var(--paper);
+
+  background-color: var(--orange);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(232, 144, 28, 0.35);
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   8. PSEUDO-CLASSES — INTERACTIVE STATES
+   Every element a visitor can click or type into responds to :hover,
+   :focus and :active, so the site reacts clearly to mouse and keyboard.
+   ========================================================================== */
+
+/* --- Navigation links --- */
+nav a:hover {
+  background-color: var(--purple);
+  color: var(--paper);
+}
+
+nav a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+nav a:active {
+  background-color: var(--teal);
+  color: var(--paper);
+}
+
+/* --- Body text links --- */
+main a:hover {
+  color: var(--orange-deep);
+}
+
+main a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+main a:active {
+  color: var(--teal);
+}
+
+/* --- Form fields --- */
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--teal);
+}
+
+/* A visible focus ring is essential for anyone navigating by keyboard */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid var(--teal);
+  outline-offset: 1px;
+  border-color: var(--teal);
+}
+
+/* Fields the browser has flagged as required but still empty */
+input:required:invalid,
+select:required:invalid {
+  border-left: 4px solid var(--orange);
+}
+
+/* --- Submit buttons --- */
+button:hover {
+  background-color: var(--orange-deep);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+}
+
+button:active {
+  background-color: var(--orange-deep);
+  box-shadow: 0 1px 4px rgba(232, 144, 28, 0.4);
+  transform: translateY(2px);   /* the button presses down when clicked */
+}
+
+/* --- Articles --- */
+article:hover {
+  border-left-color: var(--purple);
+  box-shadow: 0 6px 18px rgba(42, 31, 46, 0.08);
+}
+
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+
+footer {
+  background-color: var(--ink);
+  color: var(--panel);
+  border-top: 5px solid var(--orange);
+  padding: var(--space-lg) var(--space-sm);
+  text-align: center;
+}
+
+footer p {
+  max-width: none;
+  margin: 0 auto var(--space-xs);
+  font-size: var(--size-small);
+}
+
+footer p:last-child {
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  color: var(--paper);
+}
+
+
+/* ==========================================================================
+   10. MAP EMBED (Contact page)
+   ========================================================================== */
+
+iframe {
+  width: 100%;
+  max-width: 34rem;
+  height: 20rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+
+/* ==========================================================================
+   11. RESPONSIVE DESIGN — TABLET
+   Breakpoint: 900px and below.
+   The page keeps a single column, so only the spacing and heading sizes
+   are reduced.
+   ========================================================================== */
+
+@media screen and (max-width: 900px) {
+
+  /* Typography adjustment — headings step down so they don't dominate */
+  :root {
+    --size-h1: 2rem;
+    --size-h2: 1.5rem;
+    --size-h3: 1.25rem;
+    --space-lg: 2.25rem;
+  }
+
+  /* Layout adjustment — tighter page padding on a narrower screen */
+  main,
+  header {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+
+  /* Navigation adjustment — links wrap onto two rows rather than squashing */
+  nav ul {
+    gap: var(--space-xs) var(--space-sm);
+  }
+
+  /* Image adjustment — campaign photos stretch to the article width */
+  article img {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   12. RESPONSIVE DESIGN — MOBILE
+   Breakpoint: 600px and below.
+   Everything becomes a single column, and the navigation becomes a stacked
+   list of full-width links that are easy to tap with a thumb.
+   ========================================================================== */
+
+@media screen and (max-width: 600px) {
+
+  /* Typography adjustment — smaller scale, and body text stays readable */
+  :root {
+    --size-h1: 1.625rem;
+    --size-h2: 1.3125rem;
+    --size-h3: 1.125rem;
+    --size-body: 1rem;
+    --space-md: 1.25rem;
+    --space-lg: 1.75rem;
+  }
+
+  /* Layout adjustment — the header stacks into one centred column */
+  header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "title"
+      "tagline";
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-xs);
+  }
+
+  header p {
+    font-size: var(--size-body);
+  }
+
+  /* Navigation adjustment — a vertical stack of full-width tap targets */
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-xs);
+  }
+
+  nav a {
+    text-align: center;
+    padding: 0.85rem var(--space-sm);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  nav li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Layout adjustment — articles and forms use the full screen width */
+  article,
+  form {
+    padding: var(--space-sm);
+  }
+
+  form {
+    max-width: none;
+  }
+
+  /* Image adjustment — photos and the map fill the column */
+  article img,
+  main section img {
+    width: 100%;
+  }
+
+  iframe {
+    max-width: none;
+    height: 15rem;
+  }
+}
+
+
+/* ==========================================================================
+   13. ACCESSIBILITY
+   Some people set their device to reduce motion. This switch turns off the
+   smooth scrolling and the button press animation for them.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  button:active {
+    transform: none;
+  }
+}
