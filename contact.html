@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags: Sets the character encoding and guarantees responsive mobile scaling -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Rammolai Foundation at 509 Stasie Street, Pretoria North, or send a message. Find our head office and Kgabo Primary School on the map.">
+    <meta name="keywords" content="contact Rammolai Foundation, Pretoria North charity, Kgabo Primary School, Atteridgeville, donation drop-off">
+    <title>Rammolai Foundation | Contact Us</title>
+     <!-- Google Fonts: Archivo for headings, Source Sans 3 for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <!-- External CSS: Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Leaflet CSS: Link to the Leaflet library for interactive maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+    <!-- Header: Displays the official logo and website branding title, and tagline -->
+    <header>
+        <img src="images/logo.jpeg" alt="Rammolai Foundation logo" width="120">
+        <h1>Rammolai Foundation</h1>
+        <p>A small charity has a big impact</p>
+    </header>
+
+    <!-- Navigation: Unordered list providing seamless routing across the 5 core sitemap pages -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="enquiry.html">Enquiries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content: Houses all unique text and features specific to the foundation's contact information -->
+    <main>
+        
+        <!-- Contact Introduction: Introductory paragraph explaining the purpose of the contact page -->
+        <section>
+            <h2>Contact Us</h2>
+            <p>We would love to hear from you. Use the form below for a general message, or visit one of our locations.</p>
+        </section>
+
+        <!-- Contact Form: Allows users to submit direct messages via Formspree -->
+        <section>
+            <h3>Send us a message</h3>
+            <!-- ACTION FIXED: Configured the endpoint to process submissions safely -->
+            <form action="https://formspree.io/f/mljdnlyr" method="POST">
+                <input type="hidden" name="_subject" value="New message from the contact page">
+                <p>
+                    <label for="c-name">Name:</label><br>
+                    <input type="text" id="c-name" name="name" required>
+                </p>
+
+                <p>
+                    <label for="c-email">Email:</label><br>
+                    <input type="email" id="c-email" name="email" required>
+                </p>
+
+                <p>
+                    <label for="c-phone">Phone:</label><br>
+                    <input type="tel" id="c-phone" name="phone">
+                </p>
+
+                 <p>
+                    <label for="message-type">Type of message:</label><br>
+                    <select id="message-type" name="message-type" required>
+                        <option value="">-- Please choose an option--</option>
+                        <option value="General">General question</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="media">Media or partnership</option>
+                        <option value="other">Other</option>
+                    </select>
+                 </p>   
+
+                <p>
+                    <label for="c-message">Message:</label><br>
+                    <textarea id="c-message" name="message" rows="6" cols="40" required></textarea>
+                </p>
+
+                <p>
+                    <button type="submit">Send Message</button>
+                </p>
+            </form>
+        </section>
+
+        <!-- Contact Information: Hardcoded direct communications block for quick reference -->
+        <section>
+            <h3>Our Contact Information</h3>
+            <p>Phone: 082 603 6769</p>
+            <p>Email: rammolaifoundation1@gmail.com</p>
+            <p>NPO 262-788NPO</p>
+        </section>
+
+        <!-- Locations: Information about the foundation's physical locations and operational targets -->
+        <section>
+            <h3>Our Locations</h3>
+
+            <!-- Article: Standard standalone content entry wrapping the Pretoria North Head Office details -->
+            <article>
+                <h4>Head Office &mdash; Pretoria North</h4>
+                <p>509 Stasie Street, Pretoria North, 0182, South Africa</p>
+                <p>Drop-offs for school shoes, uniforms, sanitary towels, and toiletries can be arranged at this address.</p>
+                <!-- Dynamic map block replacing the iframe -->
+                <div id="head-office-map" style="height: 300px; width: 100%; border-radius: 4px; margin-top: 10px;"></div>
+            </article>
+
+            <!-- Article: Standard standalone content entry wrapping the Atteridgeville drop target details -->
+            <article>
+                <h4>Donation Drive Location &mdash; Kgabo Primary School</h4>
+                <p>Kgabo Primary School, Atteridgeville, Pretoria West, South Africa</p>
+                <p>One of the schools where Rammolai Foundation regularly runs school shoe donation drives.</p>
+                <!-- Dynamic map block replacing the iframe -->
+                <div id="school-location-map" style="height: 300px; width: 100%; border-radius: 4px; margin-top: 10px;"></div>
+
+            </article>
+            
+
+        </section>
+        
+    </main>
+
+    <!-- Footer: Persistent base display providing legal registration, address, and digital contacts -->
+    <footer>
+        <p>509 Stasie Street, Pretoria North, 0182, South Africa</p>
+        <p>Phone: 082 603 6769 | Email: rammolaifoundation1@gmail.com</p>
+        <p>NPO 262-788NPO</p>
+        <p>&copy; 2026 Rammolai Foundation. All rights reserved.</p>
+    </footer>
+
+       <!-- Link to our external custom JavaScript functionality file -->
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <script src="js/main.js"></script>
+
+      
+    
+
+</body>
+</html>
