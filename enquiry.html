@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags: Sets the character encoding and viewport for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volunteer, donate or become a sponsor: send an enquiry to Rammolai Foundation and we will respond within 48 hours.">
+    <meta name="keywords" content="volunteer Pretoria, sponsor a charity, donate school shoes, charity enquiry, Rammolai Foundation">
+    <title>Rammolai Foundation | Enquiries</title>
+    <!-- Google Fonts: Archivo for headings, Source Sans 3 for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <!-- External CSS: Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header: Displays the official logo and website branding title, and tagline -->
+    <header>
+        <img src="images/logo.jpeg" alt="Rammolai Foundation logo" width="120">
+        <h1>Rammolai Foundation</h1>
+        <p>A small charity has a big impact</p>
+    </header>
+
+    <!-- Navigation: Unordered list providing seamless routing across the 5 core sitemap pages -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="enquiry.html">Enquiries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content: Houses all unique text and features specific to the foundation's enquiry information -->
+    <main>
+        
+        <!-- Enquiry Introduction: Introductory paragraph explaining the purpose of the enquiry page -->
+        <section>
+            <h2>Make an Enquiry</h2>
+            <p>Whether you would like to volunteer, donate money or items, or become a sponsor, tell us a bit about how you would like to help and we will be in touch.</p>
+        </section>
+
+        <!-- Enquiry Form: Form for users to submit their enquiries via Formspree -->
+        <section>
+            <form action="https://formspree.io/f/mljdnlyr" method="POST">
+                <p>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required>
+                </p>
+
+                <p>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+                <p>
+                    <label for="phone">Phone:</label><br>
+                    <input type="tel" id="phone" name="phone">
+                </p>
+
+                <p>
+                    <label for="interest">I am Interested In:</label><br>
+                    <select id="interest" name="interest" required>
+                        <option value="">-- Please choose an option --</option>
+                        <option value="volunteering">Volunteering</option>
+                        <option value="donate-money">Donating money</option>
+                        <option value="donate-items">Donating items (shoes, uniforms, toiletries)</option>
+                        <option value="sponsor">Becoming a Sponsor</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="5" cols="40"></textarea>
+                </p>
+
+                <p>
+                    <button type="submit">Send Enquiry</button>
+                </p>
+            </form>
+        </section>
+        
+    </main>
+
+    <!-- Footer: Persistent base display providing legal registration, address, and digital contacts -->
+    <footer>
+        <p>509 Stasie Street, Pretoria North, 0182, South Africa</p>
+        <p>Phone: 082 603 6769 | Email: rammolaifoundation1@gmail.com</p>
+        <p>NPO 262-788NPO</p>
+        <p>&copy; 2026 Rammolai Foundation. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to our external custom JavaScript functionality file -->
+      <script src="js/main.js"></script>
+
+</body>
+</html>
