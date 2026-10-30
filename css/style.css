@@ -544,7 +544,7 @@ iframe {
     margin: 0 auto;
 }
 .error-page h2 {
-    font-size: var (--size-h1);
+    font-size: var(--size-h1);
     color: var(--orange);
     margin-bottom: var(--space-sm);
 }

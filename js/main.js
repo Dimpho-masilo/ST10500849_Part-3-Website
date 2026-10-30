@@ -212,7 +212,9 @@ function initLightboxGallery() {
         img.addEventListener("keydown", e => { if (e.key === "Enter") open(i); });
     });
 
-    overlay.addEventListener("click", close);
+        overlay.addEventListener("click", e => {
+        if (e.target === overlay) close();
+    });
     document.addEventListener("keydown", e => {
         if (overlay.style.display === "none") return;
         if (e.key === "Escape") close();
