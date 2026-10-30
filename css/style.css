@@ -131,6 +131,17 @@ h3 {
   margin-bottom: var(--space-xs);
 }
 
+main h4 {
+    font-family: 'Archivo', sans-serif;
+    font-size: var(--size-h3);
+    font-weight: 600;
+    color: var(--ink);
+    margin: var(--space-sm) 0 var(--space-xs);
+    letter-spacing: 0.02em;
+    border-left: 4px solid var(--orange);
+    padding-left: 0.6rem;
+}
+
 p {
   margin-bottom: var(--space-sm);
   max-width: 68ch;           /* keeps lines short enough to read comfortably */
@@ -173,6 +184,7 @@ header {
 header img {
   grid-area: logo;
 }
+
 
 header h1 {
   grid-area: title;
@@ -384,6 +396,12 @@ nav a:active {
   background-color: var(--teal);
   color: var(--paper);
 }
+nav a.active,
+nav a[aria-current="page"] {
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  font-weight: 700;
+} 
 
 /* --- Body text links --- */
 main a:hover {
@@ -518,6 +536,21 @@ iframe {
   }
 }
 
+/* ---- 404 error page ---- */
+.error-page {
+    text-align: center;
+    padding: var(--space-lg) var(--space-sm);
+    max-width: 40rem;
+    margin: 0 auto;
+}
+.error-page h2 {
+    font-size: var (--size-h1);
+    color: var(--orange);
+    margin-bottom: var(--space-sm);
+}
+.error-page p { 
+  margin-bottom: 1rem; 
+}
 
 /* ==========================================================================
    12. RESPONSIVE DESIGN — MOBILE
