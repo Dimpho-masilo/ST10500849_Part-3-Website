@@ -87,6 +87,40 @@ Part 1 focuses on project planning, content research, file organisation, and the
 
 Part 3 adds JavaScript functionality and search engine optimisation: form validation with AJAX submission, a lightbox gallery, a services search filter, interactive maps, meta tags, `robots.txt` and `sitemap.xml`, and deployment to GitHub Pages.
 
+## Dynamic Content & Interactive Features
+
+To satisfy the "dynamic content" requirements (2.2), the site uses JavaScript to load and update content **without a page reload**, in 2 manners:
+
+### 1. Dynamic AJAX Form Responses
+
+Both forms (`enquiry.html` and `contact.html`) submit asynchronously using the JavaScript **Fetch API** (`fetch()` in `js/main.js`). Instead of navigating away, the script:
+
+- Validates all fields client-side and displays inline error messages. - POSTs the form data to Formspree in the background.
+- Dynamically builds a personalised success message based on the user's selected enquiry type (e.g. "volunteering", "donate-money", "donate-items", "sponsor").
+- Injects that message into the DOM via a `showNotice()` banner that appears at the top of the screen and auto-dismisses after 6 seconds.
+- On failure, it dynamically shows an error banner with a fallback email address.
+
+This is a **Single-Page-Application-style** interaction: the user never leaves the page, and content is generated in real time by JavaScript.
+
+### 2. Interactive Search Filter (Services Page)
+
+The search box on `services.html` uses JavaScript (`initServiceSearch()` in `js/main.js`) to dynamically filter the service cards in real time:
+
+- On every keystroke, it reads the input value and compares it against each card's text content.
+- Matching cards remain visible; non-matching cards are hidden by setting `display: none` inline — no page reload.
+- A live feedback message (`aria-live="polite"`) is updated after each filter: _"N service(s) shown"_ or _"No services match 'xyz'"_ providing immediate, accessible feedback to both sighted users and screen readers.
+
+### 3. Interactive Lightbox Modal
+
+Images across the site are wrapped in a JavaScript-driven modal lightbox (also required by rubric 2.1). It:
+
+- Opens when a thumbnail is clicked or focused and `Enter` is pressed. - Displays the enlarged image and a caption ("1 of N").
+- Supports keyboard navigation (`←` / `→`) and closes on `Escape`, backdrop click, or the ✕ area — but **not** when clicking the image itself (backdrop-only close, per best practice).
+
+### 4. Interactive Maps (Leaflet)
+
+The two location maps on `contact.html` are rendered dynamically by **Leaflet** with **OpenStreetMap** tiles — not static images or iframes. Users can zoom, pan, and interact with the marker popups.
+
 ## Links
 
 - **GitHub repository:** https://github.com/Dimpho-masilo/ST10500849_Part-3-Website
@@ -111,6 +145,7 @@ Website/
 ├── services.html
 ├── enquiry.html
 ├── contact.html
+├── 404.html
 ├── robots.txt
 ├── sitemap.xml
 ├── README.md
@@ -186,6 +221,7 @@ _The entries from 14 August to 21 August record when each stage of the project w
 - `robots.txt` and `sitemap.xml` in the project root.
 - Lazy loading (`loading="lazy"`) on images lower down the page to improve page speed.
 - "Type of message" dropdown on the contact form.
+- Added a "Dynamic Content & Interactive Features" section to the README explaining how AJAX form submission, the service search filter, the lightbox, and Leaflet maps fulfil the dynamic-content requirement.
 
 #### Changed
 
