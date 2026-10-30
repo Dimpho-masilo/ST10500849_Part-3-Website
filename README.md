@@ -35,7 +35,7 @@ The website is meant to raise awareness of the Foundation’s work and give it a
 | Domain name   | I will use www.Rammolaifoundation.org.za, registered via Domains.co.za / Afrihost.                                                                                             |
 | Hosting       | I will use shared hosting suited to a small site, for example Afrihost.                                                                                                        |
 | Forms         | I will use Formspree to handle contact and volunteer or sponsor enquiry submissions without custom backend code.                                                               |
-| Payments      | EFT and bank details will be displayed for monetary donations.                                                                                                                 |
+| Payments      | EFT/bank details are provided on request via the Enquiries form .                                                                                                              |
 
 ## Timeline and Milestones
 
